@@ -1,15 +1,14 @@
 
 <?php
-$language;
-$server; 
 
-if(isset($_GET['language']) && isset($_GET['server'])){
+if(!empty($_GET['language']) && !empty($_GET['server'])){
     $language = $_GET['language'];
     $server = $_GET['server'];
+    $test = true;
 } else {
     $parameter = 'les paramètres ne sont pas là !';
+    $test= false;
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -20,20 +19,24 @@ if(isset($_GET['language']) && isset($_GET['server'])){
     <title>Document</title>
 </head>
 <body>
-<h2>Exercice 4 </h2>
-<p>Faire une page index.php. Tester sur cette page que tous les paramètres de cette URL existent  et les afficher : index.php?language=PHP&server=LAMP</p>
+    <h2>Exercice 4 </h2>
+    <p>Faire une page index.php. Tester sur cette page que tous les paramètres de cette URL existent  et les afficher : index.php?language=PHP&server=LAMP</p>
 
-<a href="exo4.php?language=PHP&server=LAMP">exo4</a>
+    <a href="exo4.php?language=PHP&server=LAMP">exo4</a>
 
-<p> 
-    <?php
-        if(isset($_GET['language']) && isset($_GET['server'])){
-            echo 'le language est ' . $language = $_GET['language'] .' et le serveur est ' . $server = $_GET['server'] . '.';
-        } else {
-            echo 'les paramètres ne sont pas là !';
-        }
-    ?>
- </p>
+    <p> 
+        <?php
+            if($test){
+                echo 'le language est ' . $language .' et le  serveur est ' . $server. '.';
+                
+            } else {
+                echo $parameter;
+            }
+
+            // test en ternaire
+            echo $test ? ( 'le language est ' . $language .' et le  serveur est ' . $server. '.'):( $parameter);
+        ?>
+    </p>
 
 </body>
 </html>

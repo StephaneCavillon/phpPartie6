@@ -1,7 +1,5 @@
 <?php
-$weekNumber;
-
-if(isset($_GET['week'])){
+if(!empty($_GET['week'])){
     $weekNumber = 'le numéro de la semaine est ' . $_GET['week'];
 } else {
     $weekNumber = 'le numéro de semaine n\'est pas défini';
@@ -17,12 +15,12 @@ if(isset($_GET['week'])){
     <title>Document</title>
 </head>
 <body>
-<h2>Exercice 5 </h2>
-<p>Faire une page index.php. Tester sur cette page que tous les paramètres de cette URL existent  et les afficher : index.php?week=12</p>
+    <h2>Exercice 5 </h2>
+    <p>Faire une page index.php. Tester sur cette page que tous les paramètres de cette URL existent  et les afficher : index.php?week=12</p>
 
-<a href="exo5.php?week=12">exo5</a>
+    <a href="exo5.php?week=12">exo5</a>
 
-<p> <?= $weekNumber?> </p>
+    <p> <?= $weekNumber?> </p>
 
 </body>
 </html>
